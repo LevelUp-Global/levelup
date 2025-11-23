@@ -132,9 +132,9 @@ https://github.com/LevelUp-Global/levelup
 ---
 
 ## 🔗 Link do vídeo de apresentação
-
+*[INSIRA AQUI O LINK DO VÍDEO NO YOUTUBE]*
 
 ---
 
 ## 🔗 Link do deploy (Vercel/Netlify)
-
+*[INSIRA AQUI O LINK DA APLICAÇÃO PUBLICADA]*
