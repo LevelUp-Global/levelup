@@ -47,6 +47,9 @@
 
 ## 👥 Autores e Créditos
 
+ - João Pedro Pereira Camilo
+ - Lucas Matsubara Reis
+ - Pamella Christiny Chaves Brincando 
 
 ---
 
