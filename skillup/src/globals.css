@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {scroll-behavior: smooth;}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Protest+Strike&display=swap');
+
+@layer base {
+  :root {
+    --cor-primaria-clara: #A080C0;
+    --cor-primaria-escura: #3529418A;
+    --cor-destaque: #A856EB;
+    --cor-texto-principal: #2B2033;
+    --cor-texto-secundario: #1E0933;
+    --cor-link-borda: #6b4f97;
+    --cor-link-texto: #4b1515;
+    --cor-sucesso: #28a745;
+    --cor-sucesso-hover: #218838;
+    --cor-fundo-hover: #f0f8ff;
+    --cor-fundo: #FFFFFF;
+    --cor-plano-bronze: #CD7F32;
+    --cor-plano-silver: #C0C0C0;
+    --cor-plano-gold: #FFD700;
+
+    --font-family-sans: 'Protest Strike', sans-serif;
+
+    --raio-borda-nav: 12px;
+    --raio-borda-card: 15px;
+    --raio-borda-botao: 16px;
+    --raio-borda-caixa: 25px;
+    --raio-borda-form: 10px;
+    --raio-borda-input: 5px;
+
+    --sombra-card: 6px 6px 12px rgba(0, 0, 0, 0.15);
+    --sombra-form: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark {
+    --cor-primaria-clara: #2D1B4E;
+    --cor-primaria-escura: #1A0F2E;
+    --cor-destaque: #B966FF;
+    --cor-texto-principal: #F5F5F5;
+    --cor-texto-secundario: #E0E0E0;
+    --cor-fundo: #1A1A1A;
+    --cor-fundo-hover: #2D2D2D;
+  }
+
+  html {
+    font-family: var(--font-family-sans);
+  }
+  
+  body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
