@@ -94,6 +94,7 @@ A aplicação se comunica com uma API backend e possui as seguintes rotas princi
 - `/planos`: Página para visualização e escolha dos planos para alunos.
 - `/login`: Página de autenticação (entrar).
 - `/register`: Página de autenticação (cadastrar).
+- `/carreira`: Página de carreiras com os cursos.
 
 ### Endpoints do Back-End (API)
 
