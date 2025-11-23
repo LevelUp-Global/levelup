@@ -97,6 +97,10 @@ A aplicação se comunica com uma API backend e possui as seguintes rotas princi
 
 ### Endpoints do Back-End (API)
 
+- `GET /usuarios` e `GET /professores`: Para autenticação de usuários.
+- `POST /usuarios` e `POST /professores`: Para cadastro de novos usuários.
+- `GET /cursos`: Para listar os cursos disponíveis.
+- `GET /challenges`: Para listar os desafios disponíveis.
 
 ---
 
