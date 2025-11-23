@@ -43,6 +43,8 @@ Este projeto foi totalmente reconstruído utilizando as tecnologias mais moderna
 
 ## 📌 Estrutura de Pastas
 
+Este projeto utiliza uma estrutura de pastas moderna e escalável, baseada no ecossistema Vite + React + TypeScript. O código-fonte (src) é organizado de forma modular, separando as responsabilidades em: components para elementos de UI reutilizáveis, routes para a configuração da navegação, e pastas específicas para cada página da aplicação.
+
 ---
 
 ## Endpoints ou Rotas Principais
