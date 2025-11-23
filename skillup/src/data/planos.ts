@@ -1,0 +1,61 @@
+import { Plan } from "../types/plano";
+
+
+export const plans: Plan[] = [
+    {
+      name: "Bronze (Starter)",
+      price: "R$ 89,90",
+      period: "por mês",
+      colorTheme: "bg-[var(--cor-plano-bronze)]", 
+      buttonColor: "bg-[var(--cor-plano-bronze)] hover:bg-[var(--cor-plano-bronze)]/90",
+      features: [
+        { text: "Acesso às trilhas básicas", included: true },
+        { text: "Perfil de usuário personalizado", included: true },
+        { text: "Participação no ranking global", included: true },
+        { text: "Chatbot de acompanhamento personalizado", included: true},
+        { text: "Mentorias exclusivas", included: false },
+        { text: "Certificados verificados", included: false },
+        { text: "Sem anúncios", included: false },
+        { text: "Call mensal com profissional de referência da área relacionada", included: false },
+        { text: "Calls semanais com professor de idioma de preferência", included: false },
+        { text: "Acesso antecipado a novas trilhas", included: false },
+      ],
+    },
+    {
+      name: "Silver (Pro)",
+      price: "R$ 129,90",
+      period: "por mês",
+      colorTheme: "bg-[var(--cor-plano-silver)]", 
+      buttonColor: "bg-[var(--cor-plano-silver)] hover:bg-[var(--cor-plano-silver)]/90",
+      features: [
+        { text: "Todas as trilhas liberadas", included: true },
+        { text: "Perfil com badges exclusivas", included: true },
+        { text: "Participação no ranking global", included: true },
+        { text: "Chatbot de acompanhamento personalizado", included: true},
+        { text: "1 Mentoria em grupo / mês", included: true },
+        { text: "Certificados verificados", included: true },
+        { text: "Sem anúncios", included: true },
+        { text: "Call mensal com profissional de referência da área relacionada", included: false },
+        { text: "Calls semanais com professor de idioma de preferência", included: false },
+      ],
+    },
+    {
+      name: "Gold (Premium)",
+      price: "R$ 189,90",
+      period: "por mês",
+      colorTheme: "bg-[var(--cor-plano-gold)]", 
+      buttonColor: "bg-[var(--cor-plano-gold)] hover:bg-yellow-300",
+      features: [
+        { text: "Todas as trilhas liberadas", included: true },
+        { text: "Badges Douradas Exclusivas", included: true },
+        { text: "Destaque no ranking", included: true },
+        { text: "Chatbot de acompanhamento personalizado", included: true},
+        { text: "Mentorias individuais semanais", included: true },
+        { text: "Certificados verificados", included: true },
+        { text: "Sem anúncios", included: true },
+        { text: "Call mensal com profissional de referência da área relacionada", included: true },
+        { text: "Calls semanais com professor de idioma de preferência", included: true },
+        { text: "Acesso antecipado a novas trilhas", included: true },
+      ],
+    },
+  ];
