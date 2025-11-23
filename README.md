@@ -21,6 +21,16 @@
 
 ## 💻 Tecnologias utilizadas:
 
+Este projeto foi totalmente reconstruído utilizando as tecnologias mais modernas do ecossistema front-end para garantir performance, manutenibilidade e uma excelente experiência de desenvolvimento:
+
+-   **Vite:** Um build tool de última geração que oferece uma experiência de desenvolvimento extremamente rápida.
+-   **React:** Biblioteca para construir interfaces de usuário reativas e componentizadas.
+-   **TypeScript:** Adiciona tipagem estática ao JavaScript, garantindo um código mais robusto e livre de erros.
+-   **Tailwind CSS:** Framework de CSS utility-first para estilização rápida, consistente e responsiva.
+-   **React Hook Form:** Gerenciador de formulários performático e com validação robusta.
+-   **React Router DOM:** Para gerenciamento de rotas e navegação entre as páginas da aplicação.
+-   **Integração API Java:** Integração do Front-End ao Back-end usando uma API REST construída em Java.
+
 ---
 
 ## Instalação
