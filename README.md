@@ -114,12 +114,20 @@ A aplicação se comunica com uma API backend e possui as seguintes rotas princi
 ---
 
 ## 🖼️ Screenshots / Demonstração
+Aqui você pode adicionar imagens da sua aplicação.*
 
+-   **Página Inicial**
+
+-   **Página de Planos**
+
+-   **Página de Autenticação (Login/Cadastro)**
+
+-   **Logo do Projeto**
 
 ---
 
 ## 🌐 Endereço repositório do projeto no GITHUB
-
+https://github.com/LevelUp-Global/levelup
 
 ---
 
