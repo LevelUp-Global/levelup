@@ -62,9 +62,14 @@ Este projeto utiliza uma estrutura de pastas moderna e escalável, baseada no ec
 ---
 
 ## Endpoints ou Rotas Principais
+A aplicação se comunica com uma API backend e possui as seguintes rotas principais no front-end:
 
 ### Rotas do Front-End
 
+- `/`: Página inicial da aplicação.
+- `/planos`: Página para visualização e escolha dos planos para alunos.
+- `/login`: Página de autenticação (entrar).
+- `/register`: Página de autenticação (cadastrar).
 
 ### Endpoints do Back-End (API)
 
