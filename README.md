@@ -41,6 +41,24 @@ Este projeto foi totalmente reconstruído utilizando as tecnologias mais moderna
 
 ## Instalação
 
+Siga os passos abaixo para configurar o ambiente de desenvolvimento localmente.
+
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/LevelUp-Global/levelup-project.git
+   ```
+
+2. **Navegue até o diretório do projeto:**
+   ```bash
+   cd levelup-project
+   ```
+
+3. **Instale as dependências:**
+   Utilizando npm:
+   ```bash
+   npm install
+   ```
+
 ---
 
 ## Como usar
