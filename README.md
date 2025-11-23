@@ -39,6 +39,20 @@ Este projeto foi totalmente reconstruído utilizando as tecnologias mais moderna
 
 ## Como usar
 
+Após a instalação, você pode iniciar o servidor de desenvolvimento.
+
+1. **Execute o comando de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+   Ou com Yarn:
+   ```bash
+   yarn dev
+   ```
+
+2. **Abra o navegador:**
+   Acesse [http://localhost:5173](http://localhost:5173) (ou a porta indicada no seu terminal) para ver a aplicação em execução.
+
 ---
 
 ## 📌 Estrutura de Pastas
