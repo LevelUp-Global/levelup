@@ -16,6 +16,12 @@
 
 ## Sobre o projeto
 
+O **LevelUp** é a interface de front-end para a Global Solution da FIAP. Trata-se de uma plataforma educacional projetada para conectar alunos e professores, oferecendo um ambiente para aprendizado e desenvolvimento profissional através de cursos e desafios.
+
+A aplicação permite que usuários (alunos) se cadastrem em diferentes planos, enquanto professores podem se registrar para compartilhar seu conhecimento. O sistema conta com autenticação robusta e uma interface moderna e reativa para proporcionar a melhor experiência ao usuário.
+
+Este projeto foi desenvolvido como parte da Global Solution 2025/2, com foco na criação de uma solução completa e integrada, conectando-se a um backend Java para persistência e gerenciamento dos dados.
+
 ---
 
 
