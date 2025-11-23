@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, ChevronUp, ArrowRight, Info, Lock } from 'lucide-react';
 
-import { coursesData } from '../../data/carreiras'; 
+import { coursesData } from '../../data/carreira'; 
 
 export default function Carreira() {
   useEffect(() => {

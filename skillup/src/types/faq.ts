@@ -1,3 +1,4 @@
+
 export interface FAQItem {
   id: number;
   title: string;

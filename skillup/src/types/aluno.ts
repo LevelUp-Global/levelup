@@ -1,3 +1,5 @@
+
+
 export interface Aluno {
   id_usuario: number;
   nome_usuario: string;

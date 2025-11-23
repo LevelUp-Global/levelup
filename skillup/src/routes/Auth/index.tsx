@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { useToast } from "../../contexts/ToastContext";
 
@@ -17,17 +17,8 @@ export default function AuthPage() {
   // register
   const [nome, setNome] = useState("");
   const [isProfessor, setIsProfessor] = useState(false);
-  const [plano, setPlano] = useState("");
   const [especialidade, setEspecialidade] = useState("");
 
-  const [searchParams] = useSearchParams();
-
-  useEffect(() => {
-    const planoFromUrl = searchParams.get("plano");
-    if (planoFromUrl) {
-      setPlano(planoFromUrl);
-    }
-  }, [searchParams]);
   const [error, setError] = useState("");
 
   async function handleLogin(e: React.FormEvent) {
@@ -69,7 +60,6 @@ export default function AuthPage() {
         email: email.trim(),
         senha: senha.trim(),
         isProfessor,
-        plano: !isProfessor ? plano : undefined,
         especialidade: isProfessor ? especialidade.trim() : undefined,
       });
       toast.success("Conta criada com sucesso!");

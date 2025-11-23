@@ -1,82 +1,83 @@
-import { useEffect } from "react";
-import { Check, X } from "lucide-react";
-import { plans } from "../../data/planos";
+import { useState, useEffect } from "react";
+
+import { aboutSections } from "../../data/sobres";
 
 
-export default function Planos() {
+export default function Sobre() {
   useEffect(() => {
-    document.title = "Nossos Planos";
+    document.title = "Sobre Nós";
   }, []);
 
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+
+  const toggleExpanded = (id: number) => {
+    setExpandedId(expandedId === id ? null : id);
+  };
+
   return (
-    <main className="min-h-screen py-10 px-4 bg-[var(--cor-primaria-clara)]">
-      <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl text-[var(--cor-texto-principal)] font-extrabold mb-4">
-          Escolha sua Jornada
+    <main className="min-h-screen py-16 px-6 bg-[var(--cor-primaria-clara)]">
+      <header className="text-center mb-10">
+        <h1 className="text-4xl md:text-5xl text-[var(--cor-texto-principal)] font-extrabold">
+          Sobre Nós
         </h1>
-        <p className="text-[var(--cor-texto-principal)]/90 text-lg max-w-4xl mx-auto">
-          Invista no seu futuro com o plano ideal para o seu momento profissional.
-          Suba de nível com a LevelUp.
+        <p className="text-[var(--cor-texto-principal)]/90 mt-3 text-base md:text-lg max-w-4xl mx-auto">
+          Conheça a equipe LevelUp e o projeto desenvolvido para a preparação
+          do futuro do mercado de trabalho.
         </p>
-      </div>
+      </header>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-10">
-        {plans.map((plan, index) => (
+      <section
+        className="space-y-4 max-w-5xl mx-auto"
+        aria-label="Informações sobre o grupo LevelUp"
+      >
+        {aboutSections.map((item) => (
           <div
-            key={index}
-            className={`
-              relative flex flex-col 
-              bg-white/90 backdrop-blur-sm 
-              rounded-lg shadow-2xl 
-              pt-24 pb-8 px-8
-              transition-transform duration-300 hover:-translate-y-2
-              ${plan.highlight ? 'ring-4 ring-[var(--cor-destaque)]/50 z-10 scale-105 md:scale-110' : ''}
-            `}
+            key={item.id}
+            className="bg-[rgba(255,255,255,0.15)] backdrop-blur-md rounded-xl border border-[rgba(255,255,255,0.2)] overflow-hidden transition-all duration-300 hover:bg-[rgba(255,255,255,0.2)]"
           >
-            <div
-              className={`
-                absolute -top-6 left-1/2 -translate-x-1/2 w-[85%]
-                ${plan.colorTheme} 
-                text-white text-center py-6 rounded-lg shadow-lg
-              `}
-            >
-              <h3 className="text-sm font-bold uppercase tracking-widest mb-1 opacity-90">
-                {plan.name}
-              </h3>
-              <div className="flex justify-center items-baseline gap-1">
-                <span className="text-4xl font-bold">{plan.price}</span>
-              </div>
-              <span className="text-xs opacity-80 font-medium uppercase">{plan.period}</span>
-            </div>
-
-            <div className="flex-1 space-y-4 mb-8 mt-10">
-              {plan.features.map((feature, idx) => (
-                <div key={idx} className="flex items-center gap-3 text-gray-700">
-                  <div className="flex-shrink-0">
-                    {feature.included ? (
-                      <Check className="w-5 h-5 text-teal-500" />
-                    ) : (
-                      <X className="w-5 h-5 text-red-400/70" />
-                    )}
-                  </div>
-                  <span className={`text-sm ${!feature.included ? 'text-gray-400 line-through decoration-gray-300' : ''}`}>
-                    {feature.text}
-                  </span>
-                </div>
-              ))}
-            </div>
-
             <button
-              className={`
-                w-full py-4 rounded text-white font-bold tracking-wide uppercase text-sm shadow-md transition-colors
-                ${plan.buttonColor}
-              `}
+              onClick={() => toggleExpanded(item.id)}
+              className="w-full px-6 md:px-8 py-4 md:py-5 flex items-start md:items-center gap-4 text-left hover:bg-[rgba(255,255,255,0.1)] transition-colors"
             >
-              Escolher Plano
+              <span className="text-3xl md:text-4xl flex-shrink-0 mt-1">{item.icon}</span>
+              
+              <div className="flex-1 min-w-0">
+                <h2 className="font-bold text-lg md:text-xl text-[var(--cor-texto-principal)]">
+                  {item.title}
+                </h2>
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={`flex-shrink-0 text-[var(--cor-texto-principal)] transition-transform duration-300 ${
+                  expandedId === item.id ? "rotate-180" : ""
+                }`}
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
             </button>
+
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                expandedId === item.id ? "max-h-96" : "max-h-0"
+              }`}
+            >
+              <div className="px-6 md:px-8 py-4 md:py-5 border-t border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.08)]">
+                {item.content}
+              </div>
+            </div>
           </div>
         ))}
-      </div>
+      </section>
+
+      <div />
     </main>
   );
 }

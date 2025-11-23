@@ -107,15 +107,13 @@ export async function cadastrarGSUsuario(payload: RegisterGSPayload): Promise<Lo
   // se o POST retornou corpo JSON com o objeto criado, normalizamos e retornamos
   try {
     const created = await res.json() as Partial<UsuarioGSResponse> | Partial<LoginGSResponse> | null;
-    // Verifica se o objeto retornado tem 'email_usuario' (da API) ou 'email' (padrão)
-    if (created && ((created as any).email_usuario || (created as any).email)) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const u = created as any;
+    if (created && (created as any).email_usuario) {
+      const u = created as UsuarioGSResponse;
       return {
-        idUsuario: u.id_usuario ?? u.idUsuario,
-        nomeUsuario: u.nome_usuario ?? u.nomeUsuario ?? '',
-        email: u.email_usuario ?? u.email ?? '',
-        planoUsuario: u.plano_usuario ?? u.planoUsuario ?? '',
+        idUsuario: (u as any).id_usuario ?? (u as any).idUsuario,
+        nomeUsuario: (u as any).nome_usuario ?? (u as any).nomeUsuario ?? '',
+        email: (u as any).email_usuario ?? (u as any).email ?? '',
+        planoUsuario: (u as any).plano_usuario ?? (u as any).planoUsuario ?? '',
         role: 'aluno'
       };
     }
@@ -207,21 +205,17 @@ export async function cadastrarGSProfessor(payload: RegisterGSPayload): Promise<
   // se retorno com corpo JSON
   try {
     const created = await res.json() as Partial<ProfessorGSResponse> | Partial<LoginGSResponse> | null;
-    // Verifica se o objeto retornado tem 'email_professor' (da API) ou 'email' (padrão)
-    if (created && ((created as any).email_professor || (created as any).email)) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const p = created as any;
+    if (created && (created as any).email_professor) {
+      const p = created as ProfessorGSResponse;
       return {
-        idUsuario: p.id_professor ?? p.idUsuario,
-        nomeUsuario: p.nome_professor ?? p.nomeUsuario ?? '',
-        email: p.email_professor ?? p.email ?? '',
-        planoUsuario: p.especialidade_professor ?? p.especialidade ?? '',
+        idUsuario: p.id_professor,
+        nomeUsuario: p.nome_professor,
+        email: p.email_professor,
+        planoUsuario: p.especialidade_professor ?? '',
         role: 'professor'
       };
     }
-  } catch (_) {
-    // sem corpo ou erro no json -> fallback abaixo
-  }
+  } catch (_) {}
 
   // fallback: GET /professores e procurar por email
   try {
