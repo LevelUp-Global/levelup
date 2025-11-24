@@ -1,4 +1,4 @@
-// src/contexts/ToastContext.tsx
+
 import React, { createContext, useCallback, useContext, useState } from "react";
 
 type ToastKind = "success" | "error" | "info";

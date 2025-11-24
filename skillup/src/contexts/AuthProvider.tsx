@@ -1,4 +1,4 @@
-// src/contexts/AuthProvider.tsx
+
 import React, { createContext, useEffect, useState } from "react";
 import {
   autenticarGSLogin,

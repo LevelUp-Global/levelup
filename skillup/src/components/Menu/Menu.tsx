@@ -1,4 +1,4 @@
-import path from "path";
+
 import { NavLink } from "react-router-dom";
 
 const navLinks = [

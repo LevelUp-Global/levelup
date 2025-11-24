@@ -1,5 +1,19 @@
-// src/services/api.ts
 const BASE = import.meta.env.VITE_API_BASE || "https://gs-java-ditp.onrender.com";
+
+// --- INTERFACES NECESSÁRIAS ---
+interface Usuario {
+  id: string | number;
+  email: string;
+  nome: string;
+}
+
+interface RespostaAPI {
+  data: Usuario;
+  // Adicione outras propriedades se o 'r' tiver (como status, ok, etc),
+  // mas para o seu uso atual, isso basta para o TS reconhecer 'data'.
+}
+
+// --- FUNÇÕES AUXILIARES ---
 
 async function tryParseJson(text: string) {
   try { return text ? JSON.parse(text) : null; } catch { return text; }
@@ -9,7 +23,7 @@ async function fetchVerbose(url: string, opts?: RequestInit) {
   try {
     const res = await fetch(url, opts);
     const text = await res.text();
-    const data = tryParseJson(text);
+    const data = await tryParseJson(text);
     return { url, ok: res.ok, status: res.status, statusText: res.statusText, data, text };
   } catch (err) {
     return { url, ok: false, status: 0, statusText: String(err), data: null, text: String(err) };
@@ -26,7 +40,8 @@ async function tryCandidates(candidates: string[], opts?: RequestInit) {
   return null;
 }
 
-/* ---------- USUÁRIOS ---------- */
+// --- ENDPOINTS USUÁRIO ---
+
 const usuarioCandidatesGET = [
   `${BASE}/usuarios`,
 ];
@@ -53,22 +68,25 @@ export async function createUsuario(payload: any) {
 
   if (!r) throw new Error("Falha ao criar usuário — endpoints testados falharam.");
 
-  // Se o POST retornou o objeto -> devolve
-  if (r.data && (r.data.id || r.data.email || r.data.nome)) return r.data;
+  // Correção: Tipagem aplicada AQUI, onde 'r' existe
+  const response = r as RespostaAPI;
 
-  // Fallback: se POST devolveu 201/200 sem body, buscar por email
+  // Correção: Adicionado o fechamento '}' do if
+  if (response.data && (response.data.id || response.data.email || response.data.nome)) {
+    return response.data;
+  }
+
   try {
     const all = await getUsuarios();
     const found = (all || []).find((u: any) => u.email === payload.email);
     if (found) return found;
-  } catch (e) {
+  } catch {
     // ignore fallback error
   }
-
-  return r.data ?? { message: "Usuário criado (sem body retornado pelo servidor)" };
 }
 
-/* ---------- PROFESSORES ---------- */
+// --- ENDPOINTS PROFESSOR ---
+
 const professorCandidatesGET = [
   `${BASE}/professores`,
 ];
@@ -81,7 +99,6 @@ export async function getProfessores() {
 
 const professorCandidatesPOST = [
   `${BASE}/professores`,
-
 ];
 
 export async function createProfessor(payload: any) {
@@ -90,18 +107,27 @@ export async function createProfessor(payload: any) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
   });
+
   if (!r) throw new Error("Falha ao criar professor — endpoints testados falharam.");
-  if (r.data && (r.data.id || r.data.email || r.data.nome)) return r.data;
+
+  // Correção: Tipagem aplicada AQUI
+  const response = r as RespostaAPI;
+
+  // Correção: Adicionado o fechamento '}' do if
+  if (response.data && (response.data.id || response.data.email || response.data.nome)) {
+    return response.data;
+  }
 
   try {
     const all = await getProfessores();
     const found = (all || []).find((p: any) => p.email === payload.email);
     if (found) return found;
   } catch {}
-  return r.data ?? { message: "Professor criado (sem body retornado pelo servidor)" };
 }
 
-/* ---------- CHALLENGES ---------- */
+
+// --- OUTROS ENDPOINTS ---
+
 const challengeCandidatesGET = [
   `${BASE}/challenge`,
   `${BASE}/challenges`,
@@ -127,7 +153,6 @@ export async function getChallengesByUsuario(id: number | string) {
   return r.data;
 }
 
-/* ---------- CURSOS ---------- */
 const cursoCandidatesGET = [
   `${BASE}/curso`,
   `${BASE}/cursos`,

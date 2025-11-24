@@ -1,4 +1,4 @@
-// src/contexts/auths.ts
+
 import { createContext } from 'react';
 import type { Aluno } from '../types/aluno';
 
