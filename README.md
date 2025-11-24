@@ -114,15 +114,19 @@ A aplicação se comunica com uma API backend e possui as seguintes rotas princi
 ---
 
 ## 🖼️ Screenshots / Demonstração
-Aqui você pode adicionar imagens da sua aplicação.*
 
 -   **Página Inicial**
+![alt text](/skillup/docs/images/home.png)
 
 -   **Página de Planos**
+![planos](/skillup/docs/images/planos.png)
 
 -   **Página de Autenticação (Login/Cadastro)**
+![login](/skillup/docs/images/login.png)
+![cadastro](/skillup/docs/images/cadastro.png)
 
 -   **Logo do Projeto**
+![logo](/skillup/src/assets/geral/logo.png)
 
 ---
 
@@ -132,9 +136,9 @@ https://github.com/LevelUp-Global/levelup
 ---
 
 ## 🔗 Link do vídeo de apresentação
-*[INSIRA AQUI O LINK DO VÍDEO NO YOUTUBE]*
+https://youtu.be/O5Uc8m3kFFA
 
 ---
 
-## 🔗 Link do deploy (Vercel/Netlify)
+## 🔗 Link do deploy
 *[INSIRA AQUI O LINK DA APLICAÇÃO PUBLICADA]*
